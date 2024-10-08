@@ -16,6 +16,8 @@ udid = ""
 #         global udid
 #         udid = adb_output.splitlines()[1].split()[0]
 #         print(f"{udid=}")
+
+
 def get_udid(device_ip: str = None) -> None:
     """Get UDID from usb or set IP address"""
     if not device_ip:

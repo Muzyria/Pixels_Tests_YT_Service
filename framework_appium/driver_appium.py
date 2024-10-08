@@ -9,7 +9,7 @@ from framework_appium.appium import Appium
 
 
 class DriverAppium:
-    app_package = "com.l1inc.yamatrack3d"
+    app_package = "com.yamatrack"
     appium_instance: Remote = None
 
     @classmethod
