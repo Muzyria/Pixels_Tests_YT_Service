@@ -47,11 +47,11 @@ def get_driver_appium_options() -> UiAutomator2Options:
     return options
 
 
-# def reset_app(package: str) -> None:
-#     subprocess.run(
-#         ['adb', '-s', udid, 'shell', 'pm', 'clear', package],
-#         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-#     )
+def reset_app(package: str) -> None:
+    subprocess.run(
+        ['adb', '-s', udid, 'shell', 'pm', 'clear', package],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+    )
 
 def get_current_activity() -> str | None:
     """return name activity"""

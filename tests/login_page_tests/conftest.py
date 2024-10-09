@@ -2,9 +2,11 @@
 # from ..config_data import firmware
 import pytest
 
+from pages_android.login_screen import LoginPage
+
 from framework_appium.appium import Appium
 from framework_appium.driver_appium import DriverAppium
-from android_utils import get_udid, get_driver_appium_options
+from android_utils import get_udid, get_driver_appium_options, reset_app
 
 from framework_chrome.driver_chrome import DriverChrome
 from chrome_utils import get_driver_chrome_options
@@ -20,13 +22,12 @@ from chrome_utils import get_driver_chrome_options
 #     parser.addoption('--login', action='store_true', default=False, help='Reset app and login before tests session')
 
 
-# def login() -> None:
-#     reset_app(DriverAppium.app_package)
-#     DriverAppium.launch_app()
-#     DriverAppium.grant_application_permissions()
-#
-#     IntroPage().click_login_button()
-#     LoginPage().login()
+def login() -> None:
+    reset_app(DriverAppium.app_package)
+    DriverAppium.launch_app()
+    DriverAppium.grant_application_permissions()
+
+    LoginPage().login()
 
 
 @pytest.fixture(scope='session')
@@ -42,12 +43,11 @@ def driver_appium(appium_service, request: pytest.FixtureRequest):
     print("__START DRIVER APPIUM__")
     get_udid()
     DriverAppium.start(get_driver_appium_options())
-    #
-    # DriverAppium.launch_app()
-    # DriverAppium.grant_application_permissions()
-    #
-    # DriverAppium.terminate_app()
-    # DriverAppium.launch_app()
+    # if request.config.option.login:
+    #     login()
+    # else:
+    #     DriverAppium.terminate_app()
+    #     DriverAppium.launch_app()
     yield
     print()
     print("__FINISH DRIVER APPIUM__")

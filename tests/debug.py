@@ -32,5 +32,5 @@ if __name__ == '__main__':
     # time_str = "103"
     # print(convert_time(time_str))  # Вывод: 01:23
 
-    print(android_utils.get_current_activity())
-
+    # print(android_utils.get_current_activity())
+    print(android_utils.is_wifi_connected())
