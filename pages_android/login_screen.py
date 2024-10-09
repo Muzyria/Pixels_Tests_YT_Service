@@ -14,14 +14,17 @@ class LoginPage(Page):
 
     LOGIN_IN_BUTTON = ("xpath", "//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[3]")
 
+    FORGOT_PASSWORD_BUTTON = ("xpath", '//android.widget.TextView[@text="Forgot Password?"]')
+    CREATE_NEW_USER_BUTTON = ("xpath", '//android.widget.TextView[@text="CREATE NEW USER ACCOUNT"]')
+
     def login(self):
         self.presence_of_element_located(self.EMAIL_INPUT_FIELD).send_keys("123")
         self.presence_of_element_located(self.PASSWORD_INPUT_FIELD).send_keys("123")
         self.presence_of_element_located(self.LOGIN_IN_BUTTON).click()
 
-    def press_login_button(self) -> "LoginPage":
-        self.presence_of_element_located(self.LOGIN_IN_BUTTON).click()
-        return self
+    def press_create_account_button(self):
+        self.presence_of_element_located(self.CREATE_NEW_USER_BUTTON).click()
+
 
 
 
