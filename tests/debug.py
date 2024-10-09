@@ -22,8 +22,6 @@ import subprocess
 
 
 
-
-
 if __name__ == '__main__':
     get_udid()
     # android_utils.get_wakefulness_status()
