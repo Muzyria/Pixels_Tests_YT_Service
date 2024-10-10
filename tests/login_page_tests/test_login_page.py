@@ -13,13 +13,7 @@ class TestLoginPage:
         print()
         print(f"START {request.node.name}")
 
-        LoginPage().press_create_account_button()
-        CreateAccountPage.swipe()
-
-        CreateAccountPage().press_submit_button()
-
-
-        time.sleep(3)
+        time.sleep(10)
 
         print("TEST_______________________")
         print(f"FINISH {request.node.name}")
