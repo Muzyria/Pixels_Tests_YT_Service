@@ -1,6 +1,6 @@
 import time
 
-from credentials import EMAIL, PASSWORD
+from credentials import EMAIL_SERVICE, PASSWORD_SERVICE
 from pages_android import Page
 
 
@@ -19,8 +19,8 @@ class LoginPage(Page):
     CREATE_NEW_USER_BUTTON = ("xpath", '//android.widget.TextView[@text="CREATE NEW USER ACCOUNT"]')
 
     def login(self):
-        self.presence_of_element_located(self.EMAIL_INPUT_FIELD).send_keys(EMAIL)
-        self.presence_of_element_located(self.PASSWORD_INPUT_FIELD).send_keys(PASSWORD)
+        self.presence_of_element_located(self.EMAIL_INPUT_FIELD).send_keys(EMAIL_SERVICE)
+        self.presence_of_element_located(self.PASSWORD_INPUT_FIELD).send_keys(PASSWORD_SERVICE)
         self.presence_of_element_located(self.LOGIN_IN_BUTTON).click()
 
     def press_create_account_button(self):

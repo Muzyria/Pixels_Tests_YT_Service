@@ -7,5 +7,5 @@ LOGIN_CONTROL = 'superadmin'
 PASSWORD_CONTROL = 'superadmin'
 
 # YamaTrack Service
-EMAIL = 'alexander.muzyria@pixelsmatter.com'
-PASSWORD = 'zau5v1762'
+EMAIL_SERVICE = 'alexander.muzyria@pixelsmatter.com'
+PASSWORD_SERVICE = 'zau5v1762'
