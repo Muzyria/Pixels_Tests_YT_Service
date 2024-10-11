@@ -15,7 +15,18 @@ class SlideBarPage(Page):
     HELP_BUTTON = ("xpath", '//android.widget.TextView[@text="HELP"]')
     LOGOUT_BUTTON = ("xpath", '//android.widget.TextView[@text="LOGOUT"]')
 
-    SLIDE_BAR_BUTTON = ("xpath", '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.ImageView')
+    SLIDE_BAR_BUTTON = ("xpath", '//android.view.ViewGroup[2]/android.widget.ImageView')
+
+
+    # from appium.webdriver.common.mobileby import MobileBy
+
+    # Поиск элемента с помощью UiSelector
+    # image_view = driver.find_element(MobileBy.ANDROID_UIAUTOMATOR,
+    #                                  'new UiSelector().className("android.widget.ImageView").instance(0)')
+    #
+    # # Взаимодействие с элементом
+    # image_view.click()
+
 
     def press_slade_bar_button(self):
         self.presence_of_element_located(self.SLIDE_BAR_BUTTON).click()
