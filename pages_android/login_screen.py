@@ -1,6 +1,6 @@
 import time
 
-from credentials import EMAIL_SERVICE, PASSWORD_SERVICE
+from credentials import EMAIL_SERVICE_USER, PASSWORD_SERVICE_USER
 from pages_android import Page
 
 
@@ -25,9 +25,9 @@ class LoginPage(Page):
     ALERT_ENTER_PASSWORD = ("xpath", '//*[contains(@text, "Please enter password to continue")]')
     ALERT_AUTH_FAILED = ("xpath", '//*[contains(@text, "Authentication failed.")]')
 
-    def login(self):
-        self.presence_of_element_located(self.EMAIL_INPUT_FIELD).send_keys(EMAIL_SERVICE)
-        self.presence_of_element_located(self.PASSWORD_INPUT_FIELD).send_keys(PASSWORD_SERVICE)
+    def login(self, login: str = EMAIL_SERVICE_USER, password: str = PASSWORD_SERVICE_USER):
+        self.presence_of_element_located(self.EMAIL_INPUT_FIELD).send_keys(login)
+        self.presence_of_element_located(self.PASSWORD_INPUT_FIELD).send_keys(password)
         self.presence_of_element_located(self.LOGIN_IN_BUTTON).click()
 
     def enter_email_field(self, email: str):

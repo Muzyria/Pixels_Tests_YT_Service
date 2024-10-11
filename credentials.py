@@ -6,6 +6,12 @@ PASSWORD_360 = 'Qwerty01!'
 LOGIN_CONTROL = 'superadmin'
 PASSWORD_CONTROL = 'superadmin'
 
-# YamaTrack Service
-EMAIL_SERVICE = 'alexander.muzyria@pixelsmatter.com'
-PASSWORD_SERVICE = 'zau5v1762'
+# YamaTrack Service User
+EMAIL_SERVICE_USER = 'alexander.muzyria@pixelsmatter.com'
+PASSWORD_SERVICE_USER = 'zau5v1762'
+
+# YamaTrack Service Admin
+EMAIL_SERVICE_ADMIN = 'igor.perets@pixelsmatter.com'
+PASSWORD_SERVICE_ADMIN = '12345678'
+
+

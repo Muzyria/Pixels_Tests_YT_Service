@@ -15,6 +15,12 @@ class SlideBarPage(Page):
     HELP_BUTTON = ("xpath", '//android.widget.TextView[@text="HELP"]')
     LOGOUT_BUTTON = ("xpath", '//android.widget.TextView[@text="LOGOUT"]')
 
+    SLIDE_BAR_BUTTON = ("xpath", '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.ImageView')
+
+    def press_slade_bar_button(self):
+        self.presence_of_element_located(self.SLIDE_BAR_BUTTON).click()
+        return self
+
     def press_close_slade_bar_button(self):
         self.presence_of_element_located(self.CLOSE_SLIDE_BAR).click()
 

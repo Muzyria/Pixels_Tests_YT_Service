@@ -8,9 +8,14 @@ from pages_android import SelectCoursePage
 from pages_android import SlideBarPage
 from pages_android import LogOutPage
 
+from common_test_steps import YamaTrackServiceScripts
+
 from pages_android import Page
 
 from framework_appium.driver_appium import DriverAppium
+
+from credentials import EMAIL_SERVICE_USER, PASSWORD_SERVICE_USER, EMAIL_SERVICE_ADMIN, PASSWORD_SERVICE_ADMIN
+
 
 @pytest.fixture(scope="class", autouse=True)
 def check_login_option(request):
@@ -20,38 +25,20 @@ def check_login_option(request):
 
 class TestLoginPage:
 
-    # @pytest.mark.skipif(pytest.config.getoption("login"), reason="Skipping because --login is set")
+    # def test_login_admin_valid_cred(self, request):
+    #     print()
+    #     print(f"START {request.node.name}")
+    #
+    #     LoginPage().login(EMAIL_SERVICE_ADMIN, PASSWORD_SERVICE_ADMIN)
+    #
+    #     print(f"FINISH {request.node.name}")
 
-
-    def test_login(self, request):
+    def test_login_user_valid_cred(self, request):
         print()
         print(f"START {request.node.name}")
 
-        # conf = pytest.Config.getoption("--login")
-        # print(conf)
-
-        # SelectCoursePage().press_slade_bar_button()
-        # SlideBarPage().press_close_slade_bar_button()
-        #
-        # SelectCoursePage().press_slade_bar_button()
-        # SlideBarPage().press_logout_button()
-        # LogOutPage().press_cancel_button()
-        #
-        # SelectCoursePage().press_slade_bar_button()
-        # SlideBarPage().press_logout_button()
-        #
-        # LogOutPage().press_logout_button()
-
-        LoginPage().enter_email_field("qwe@sd.tu")
-        LoginPage().enter_password_field("123")
-        LoginPage().press_login_button()
-        time.sleep(1)
-
-        try:
-            alert = (DriverAppium.appium_instance.find_element("xpath", '//*[contains(@text, "Au")]'))
-            print(alert.text)
-        except Exception:
-            print("Всплывающее сообщение не найдено")
+        LoginPage().login(EMAIL_SERVICE_USER, PASSWORD_SERVICE_USER)
+        YamaTrackServiceScripts.logout_apk()
 
         print(f"FINISH {request.node.name}")
 
