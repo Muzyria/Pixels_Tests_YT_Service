@@ -21,7 +21,7 @@ from framework_appium.driver_appium import DriverAppium
 
 class Page:
 
-    TIMEOUT = 30
+    TIMEOUT = 20
 
     @classmethod
     def _wait(cls) -> WebDriverWait:
