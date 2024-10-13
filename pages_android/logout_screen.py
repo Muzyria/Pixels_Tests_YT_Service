@@ -18,5 +18,5 @@ class LogOutPage(Page):
 
     def press_logout_button(self):
         print("CLICK LOG OUT BUTTON")
-        time.sleep(2)
+        time.sleep(1)
         self.element_to_be_clickable(self.LOGOUT_BUTTON).click()

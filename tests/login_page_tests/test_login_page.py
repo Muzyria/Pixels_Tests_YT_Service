@@ -46,6 +46,20 @@ class TestLoginPage:
 
         print(f"FINISH {request.node.name}")
 
+    @pytest.mark.admin
+    def test_log_out_admin(self, request):
+        print()
+        print(f"START {request.node.name}")
+
+        LoginPage().login(EMAIL_SERVICE_ADMIN, PASSWORD_SERVICE_ADMIN)
+
+        SlideBarPage().press_slade_bar_button().press_logout_button()
+        LogOutPage().press_cancel_button()
+
+        YamaTrackServiceScripts.logout_apk()
+
+        print(f"FINISH {request.node.name}")
+
     @pytest.mark.user
     def test_login_user_valid_cred(self, request):
         print()
@@ -88,3 +102,18 @@ class TestLoginPage:
         CreateAccountPage().press_back_button()
 
         print(f"FINISH {request.node.name}")
+
+    @pytest.mark.user
+    def test_log_out_user(self, request):
+        print()
+        print(f"START {request.node.name}")
+
+        LoginPage().login(EMAIL_SERVICE_USER, PASSWORD_SERVICE_USER)
+
+        SlideBarPage().press_slade_bar_button().press_logout_button()
+        LogOutPage().press_cancel_button()
+
+        YamaTrackServiceScripts.logout_apk()
+
+        print(f"FINISH {request.node.name}")
+
