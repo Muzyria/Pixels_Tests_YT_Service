@@ -47,4 +47,7 @@ class LoginPage(Page):
     def press_create_account_button(self):
         self.presence_of_element_located(self.CREATE_NEW_USER_BUTTON).click()
 
+    def is_alert_displayed(self, text):
+        locator = ("xpath", f'//*[contains(@text, "{text}")]')
 
+        return self.presence_of_element_located(self.ALERT_AUTH_FAILED).is_displayed()

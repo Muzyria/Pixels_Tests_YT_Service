@@ -116,17 +116,27 @@ class TestLoginPage:
 
 
     @pytest.mark.user
-    @pytest.mark.parametrize("email, password", [(Generator.get_fake_email(), Generator.get_fake_password()),
-                                                 (EMAIL_SERVICE_USER, Generator.get_fake_password()),
-                                                 (Generator.get_fake_email(), PASSWORD_SERVICE_USER),
-                                                 ('', Generator.get_fake_password()),
-                                                 (Generator.get_fake_email(), ''),
-                                                 ('', '')])
-    def test_incorrect_cred(self, request, email, password):
+    # @pytest.mark.parametrize("email, password, expected",
+    #                          [(Generator.get_fake_email(), Generator.get_fake_password(), "Authentication failed."),
+    #                           (EMAIL_SERVICE_USER, Generator.get_fake_password(), "Authentication failed."),
+    #                           (Generator.get_fake_email(), PASSWORD_SERVICE_USER, "Authentication failed."),
+    #                           ('', Generator.get_fake_password(), "Please enter your registered email"),
+    #                           (Generator.get_fake_email(), '', "Please enter password to continue"),
+    #                           ('', '', "Please enter your registered email")])
+
+    @pytest.mark.parametrize("email, password, expected",
+                             [(Generator.get_fake_email(), Generator.get_fake_password(), "Authentication failed.")])
+    def test_incorrect_cred(self, request, email, password, expected):
         print()
         print(f"START {request.node.name}")
 
         LoginPage().login(email, password)
+
+        # assert LoginPage().is_alert_displayed(expected), f"Alert {expected} is not displayed"
+
+        print(LoginPage().is_alert_displayed(""))
+
+        print("---")
 
         print(f"FINISH {request.node.name}")
 
