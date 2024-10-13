@@ -12,7 +12,7 @@ from pages_android import ForgotPasswordPage
 from pages_android import PendingApprovedPage
 
 
-from common_test_steps import YamaTrackServiceScripts
+from common_test_steps import YamaTrackServiceScripts, Generator
 
 from pages_android import Page
 
@@ -28,9 +28,6 @@ def check_login_option(request):
 
 
 class TestLoginPage:
-
-    # @pytest.mark.parametrize("email, password", [(EMAIL_SERVICE_USER, PASSWORD_SERVICE_USER),
-    #                                              (EMAIL_SERVICE_ADMIN, PASSWORD_SERVICE_ADMIN)])
 
     @pytest.mark.admin
     def test_login_admin_valid_cred(self, request):
@@ -114,6 +111,22 @@ class TestLoginPage:
         LogOutPage().press_cancel_button()
 
         YamaTrackServiceScripts.logout_apk()
+
+        print(f"FINISH {request.node.name}")
+
+
+    @pytest.mark.user
+    @pytest.mark.parametrize("email, password", [(Generator.get_fake_email(), Generator.get_fake_password()),
+                                                 (EMAIL_SERVICE_USER, Generator.get_fake_password()),
+                                                 (Generator.get_fake_email(), PASSWORD_SERVICE_USER),
+                                                 ('', Generator.get_fake_password()),
+                                                 (Generator.get_fake_email(), ''),
+                                                 ('', '')])
+    def test_incorrect_cred(self, request, email, password):
+        print()
+        print(f"START {request.node.name}")
+
+        LoginPage().login(email, password)
 
         print(f"FINISH {request.node.name}")
 

@@ -29,5 +29,7 @@ if __name__ == '__main__':
     # Пример использования
     # time_str = "103"
     # print(convert_time(time_str))  # Вывод: 01:23
+    print()
+
 
 
