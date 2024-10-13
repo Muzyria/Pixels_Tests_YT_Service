@@ -7,6 +7,7 @@ from pages_android import CreateAccountPage
 from pages_android import SelectCoursePage
 from pages_android import SlideBarPage
 from pages_android import LogOutPage
+from pages_android import ForgotPasswordPage
 
 from pages_android import PendingApprovedPage
 
@@ -60,12 +61,30 @@ class TestLoginPage:
         print(f"FINISH {request.node.name}")
 
     @pytest.mark.user
-    def test_forgot_password(self, request):
+    def test_forgot_password_screen(self, request):
         print()
         print(f"START {request.node.name}")
 
-        # SelectCoursePage().press_slade_bar_button()
-        # SlideBarPage().press_close_slade_bar_button()
-        print("__________________________________________________________TEST_2")
+        LoginPage().press_forgot_password()
+
+        assert ForgotPasswordPage().is_forgot_password_text_displayed()
+
+        ForgotPasswordPage().press_back_button()
+
+        print(f"FINISH {request.node.name}")
+
+    @pytest.mark.user
+    def test_create_new_user_account_screen(self, request):
+        print()
+        print(f"START {request.node.name}")
+
+        LoginPage().press_create_account_button()
+
+        assert CreateAccountPage().is_create_account_text_displayed()
+        CreateAccountPage.swipe()
+        assert CreateAccountPage().is_submit_button_displayed()
+        CreateAccountPage.swipe(500, 200, 500, 700, 250)
+
+        CreateAccountPage().press_back_button()
 
         print(f"FINISH {request.node.name}")

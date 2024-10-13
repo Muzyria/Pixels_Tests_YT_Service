@@ -39,15 +39,12 @@ class LoginPage(Page):
     def press_login_button(self):
         self.presence_of_element_located(self.LOGIN_IN_BUTTON).click()
 
+    #-------------------------------------------------------------------------------------------------------------------
+
+    def press_forgot_password(self):
+        self.visibility_of_element_located(self.FORGOT_PASSWORD_BUTTON).click()
 
     def press_create_account_button(self):
         self.presence_of_element_located(self.CREATE_NEW_USER_BUTTON).click()
-
-    # def get_text_alert_email(self):
-    #     return self.presence_of_element_located(self.ALERT_ENTER_EMAIL).text
-
-
-
-
 
 

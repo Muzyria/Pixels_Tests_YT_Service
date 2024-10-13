@@ -9,18 +9,15 @@ class ForgotPasswordPage(Page):
 
     NAME_ACTIVITY = ""
 
+    FORGOT_PASSWORD_TEXT = ('xpath', '//android.widget.TextView[@text="FORGOT PASSWORD"]')
+
     EMAIL_INPUT_FIELD = ("xpath", '//android.widget.EditText')
     SUBMIT_BUTTON = ("xpath", '//android.widget.TextView[@text="SUBMIT"]')
     BACK_BUTTON = ("xpath", '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]')
 
-    # def login(self):
-    #     self.presence_of_element_located(self.EMAIL_INPUT_FIELD).send_keys("123")
-    #     self.presence_of_element_located(self.PASSWORD_INPUT_FIELD).send_keys("123")
-    #     self.presence_of_element_located(self.LOGIN_IN_BUTTON).click()
-    #
-    # def press_login_button(self) -> "LoginPage":
-    #     self.presence_of_element_located(self.LOGIN_IN_BUTTON).click()
-    #     return self
+    def is_forgot_password_text_displayed(self):
+        return self.visibility_of_element_located(self.FORGOT_PASSWORD_TEXT).is_displayed()
 
-
+    def press_back_button(self):
+        self.visibility_of_element_located(self.BACK_BUTTON).click()
 
