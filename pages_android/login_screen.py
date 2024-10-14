@@ -49,5 +49,4 @@ class LoginPage(Page):
 
     def is_alert_displayed(self, text):
         locator = ("xpath", f'//*[contains(@text, "{text}")]')
-
-        return self.presence_of_element_located(self.ALERT_AUTH_FAILED).is_displayed()
+        return self.presence_of_element_located(locator).text

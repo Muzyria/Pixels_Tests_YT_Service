@@ -23,13 +23,14 @@ import subprocess
 
 
 if __name__ == '__main__':
-    get_udid()
+    # get_udid()
     # android_utils.get_wakefulness_status()
     # android_utils.wake_up_device()
     # Пример использования
     # time_str = "103"
     # print(convert_time(time_str))  # Вывод: 01:23
     print()
+
 
 
 
