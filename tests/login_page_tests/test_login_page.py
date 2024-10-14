@@ -133,7 +133,7 @@ class TestLoginPage:
 
         print(f"FINISH {request.node.name}")
 
-    @pytest.skip
+    @pytest.mark.skip
     def test_debug(self, request):
         print()
         print(f"START {request.node.name}")

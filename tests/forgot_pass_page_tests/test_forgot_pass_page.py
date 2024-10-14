@@ -50,14 +50,30 @@ class TestForgotPassPage:
         ForgotPasswordPage().enter_email_for_password("")
         ForgotPasswordPage().press_submit_button()
 
-        alert_text = ForgotPasswordPage().is_alert_displayed("Please enter the valid Email address")
-        assert alert_text == "Please enter the valid Email address", "Alert 'Please enter the valid Email address' is not displayed"
+        alert_text = ForgotPasswordPage().is_alert_displayed("Please enter the email address")
+        assert alert_text == "Please enter the email address", "Alert 'Please enter the email address' is not displayed"
 
-        # ForgotPasswordPage().enter_email_for_password(EMAIL_SERVICE_USER)
-        #
-        # ForgotPasswordPage().press_submit_button()
-        #
-        # ForgotPasswordPage().press_close_button()
+        # step 4
+        ForgotPasswordPage().enter_email_for_password(Generator.get_fake_email())
+        ForgotPasswordPage().press_submit_button()
+
+        alert_text = ForgotPasswordPage().is_alert_displayed("No user found")
+        print(alert_text)
+        assert alert_text == "No user found", "Alert 'No user found' is not displayed"
+
+        print(f"FINISH {request.node.name}")
+
+    def test_forgot_password_2(self, request):
+        print()
+        print(f"START {request.node.name}")
+        # step 5
+        LoginPage().press_forgot_password()
+        ForgotPasswordPage().enter_email_for_password(EMAIL_SERVICE_USER)
+        ForgotPasswordPage().press_submit_button()
+        ForgotPasswordPage().press_close_button()
+
+        # step 6
+
 
         print(f"FINISH {request.node.name}")
 
