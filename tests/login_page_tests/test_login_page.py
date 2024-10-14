@@ -72,7 +72,7 @@ class TestLoginPage:
         print(f"FINISH {request.node.name}")
 
     @pytest.mark.user
-    def test_forgot_password_screen(self, request):
+    def test_forgot_pass_screen(self, request):
         print()
         print(f"START {request.node.name}")
 
@@ -133,18 +133,17 @@ class TestLoginPage:
 
         print(f"FINISH {request.node.name}")
 
+    @pytest.skip
     def test_debug(self, request):
         print()
         print(f"START {request.node.name}")
 
-        LoginPage().enter_password_field("132")
-        LoginPage().press_login_button()
+        LoginPage().press_forgot_password()
+        ForgotPasswordPage().enter_email_for_password(EMAIL_SERVICE_USER)
 
-        res = DriverAppium.appium_instance.find_element("xpath", '//*[contains(@text, "Plea")]').text
+        ForgotPasswordPage().press_submit_button()
 
-        print("---")
-        print(res)
-        print("---")
+        ForgotPasswordPage().press_close_button()
 
         print(f"FINISH {request.node.name}")
 

@@ -8,7 +8,7 @@ PASSWORD_CONTROL = 'superadmin'
 
 # YamaTrack Service User
 EMAIL_SERVICE_USER = 'alexander.muzyria@pixelsmatter.com'
-PASSWORD_SERVICE_USER = 'zau5v1762'
+PASSWORD_SERVICE_USER = 'j7vcuuhdm'
 
 # YamaTrack Service Admin
 EMAIL_SERVICE_ADMIN = 'igor.perets@pixelsmatter.com'
