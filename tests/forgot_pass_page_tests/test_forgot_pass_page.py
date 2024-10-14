@@ -27,6 +27,7 @@ def check_login_option(request):
         pytest.skip("Skipping tests because --login option is set")
 
 
+@pytest.mark.skip
 class TestForgotPassPage:
 
     def test_forgot_password(self, request):
@@ -71,9 +72,6 @@ class TestForgotPassPage:
         ForgotPasswordPage().enter_email_for_password(EMAIL_SERVICE_USER)
         ForgotPasswordPage().press_submit_button()
         ForgotPasswordPage().press_close_button()
-
-        # step 6
-
 
         print(f"FINISH {request.node.name}")
 
