@@ -31,6 +31,3 @@ if __name__ == '__main__':
     # print(convert_time(time_str))  # Вывод: 01:23
     print()
 
-
-
-
